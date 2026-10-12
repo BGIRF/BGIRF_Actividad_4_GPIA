@@ -1,0 +1,19 @@
+# Dependencias del prototipo (Python 3.10+).
+# En Google Colab, torch ya viene instalado con soporte CUDA: no se fija su versión
+# para no reemplazarlo por una compilación sin GPU.
+torch
+transformers>=4.44
+datasets>=2.20
+evaluate>=0.4
+accelerate>=0.30
+huggingface_hub>=0.24
+sentencepiece>=0.2
+protobuf>=4.25
+scikit-learn>=1.4
+pandas>=2.1
+numpy>=1.26
+matplotlib>=3.8
+openpyxl>=3.1
+
+# Opcional: demo en un Space de Hugging Face (src/app_gradio.py)
+# gradio>=4.0

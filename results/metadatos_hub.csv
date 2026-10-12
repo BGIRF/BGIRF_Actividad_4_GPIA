@@ -1,0 +1,4 @@
+modelo,model_id,licencia,tarea_hub,n_idiomas_card,incluye_es,tamano_disco_MB,descargas_mes,likes,spaces_que_lo_usan,commit
+MiniLM-L6,MoritzLaurer/multilingual-MiniLMv2-L6-mnli-xnli,mit,zero-shot-classification,16,True,408,19480,52,17,0a71e92a98
+mDeBERTa-base,MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7,mit,zero-shot-classification,27,True,532,884409,394,53,b5113eb38a
+XLM-R-large,joeddav/xlm-roberta-large-xnli,mit,zero-shot-classification,16,True,2140,2010957,293,98,b227ee8435

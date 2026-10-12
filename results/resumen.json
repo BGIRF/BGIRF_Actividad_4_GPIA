@@ -1,0 +1,146 @@
+{
+  "recomendado": "mDeBERTa-base",
+  "veredicto": "ningún modelo cumple todos los umbrales en zero-shot; se recomienda el de mayor macro-F1 como base para fine-tuning con claims reales etiquetados y, mientras tanto, operar con revisión humana de todo claim por debajo de τ",
+  "umbrales": {
+    "f1_macro_min": 0.8,
+    "recall_salud_min": 0.9,
+    "latencia_gpu_max_ms": 300,
+    "precision_auto_min": 0.9
+  },
+  "volumen_anual_claims": 86400,
+  "configuraciones": {
+    "base_en": {
+      "plantilla": "This example is {}.",
+      "etiquetas": {
+        "NUTRIMENTAL": "nutrimental",
+        "SALUD": "salud",
+        "AUSENCIA": "ausencia",
+        "MARKETING": "marketing"
+      }
+    },
+    "es_cortas": {
+      "plantilla": "Esta declaración de etiqueta es de tipo {}.",
+      "etiquetas": {
+        "NUTRIMENTAL": "nutrimental",
+        "SALUD": "salud",
+        "AUSENCIA": "ausencia de ingredientes",
+        "MARKETING": "mercadotecnia"
+      }
+    },
+    "es_descriptivas": {
+      "plantilla": "Esta declaración de una etiqueta de alimentos habla de {}.",
+      "etiquetas": {
+        "NUTRIMENTAL": "la cantidad de un nutrimento como grasa, azúcar, sodio, fibra, proteína, vitaminas o calorías",
+        "SALUD": "un beneficio para la salud o una función del cuerpo",
+        "AUSENCIA": "la ausencia de un alérgeno, aditivo o ingrediente como gluten, lactosa, conservadores o colorantes",
+        "MARKETING": "la calidad, el origen, la elaboración o el sabor del producto"
+      }
+    }
+  },
+  "modelos": {
+    "MiniLM-L6": {
+      "model_id": "MoritzLaurer/multilingual-MiniLMv2-L6-mnli-xnli",
+      "arquitectura": "MiniLMv2 (6 capas), destilado de XLM-RoBERTa-large",
+      "params_M": 107,
+      "tamano_disco_MB": 408,
+      "licencia": "mit",
+      "config_ajuste": "es_descriptivas",
+      "accuracy": 0.550295858,
+      "precision_macro": 0.6791342952,
+      "recall_macro": 0.543956044,
+      "f1_macro": 0.5371549936,
+      "f1_macro_sin_ajuste": 0.4507401254,
+      "recall_salud": 0.8095238095,
+      "ms_claim_gpu": 13.9027706982,
+      "p95_unitario_ms": 107.9402406,
+      "ms_claim_cpu": 377.1381574,
+      "vram_MB": 435.2924804688,
+      "horas_gpu_anuales": 0.3336664968,
+      "horas_cpu_anuales": 9.0513157776,
+      "tau": 0.5,
+      "cobertura_auto": 0.1952662722,
+      "exactitud_auto": 0.9696969697,
+      "cumple_f1": false,
+      "cumple_recall_salud": false,
+      "cumple_latencia": true,
+      "dispositivo": "Tesla T4",
+      "cumple_todo": false
+    },
+    "mDeBERTa-base": {
+      "model_id": "MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7",
+      "arquitectura": "mDeBERTa-v3 base (12 capas)",
+      "params_M": 279,
+      "tamano_disco_MB": 532,
+      "licencia": "mit",
+      "config_ajuste": "es_cortas",
+      "accuracy": 0.6094674556,
+      "precision_macro": 0.658546147,
+      "recall_macro": 0.6228414443,
+      "f1_macro": 0.5993950393,
+      "f1_macro_sin_ajuste": 0.5581268936,
+      "recall_salud": 0.8571428571,
+      "ms_claim_gpu": 36.7544105385,
+      "p95_unitario_ms": 575.1874972001,
+      "ms_claim_cpu": 10641.9575823,
+      "vram_MB": 629.828125,
+      "horas_gpu_anuales": 0.8821058529,
+      "horas_cpu_anuales": 255.4069819752,
+      "tau": null,
+      "cobertura_auto": 0.0,
+      "exactitud_auto": null,
+      "cumple_f1": false,
+      "cumple_recall_salud": false,
+      "cumple_latencia": true,
+      "dispositivo": "Tesla T4",
+      "cumple_todo": false
+    },
+    "XLM-R-large": {
+      "model_id": "joeddav/xlm-roberta-large-xnli",
+      "arquitectura": "XLM-RoBERTa large (24 capas)",
+      "params_M": 560,
+      "tamano_disco_MB": 2140,
+      "licencia": "mit",
+      "config_ajuste": "es_cortas",
+      "accuracy": 0.6153846154,
+      "precision_macro": 0.7181003,
+      "recall_macro": 0.610151753,
+      "f1_macro": 0.5915664255,
+      "f1_macro_sin_ajuste": 0.4466415519,
+      "recall_salud": 0.2857142857,
+      "ms_claim_gpu": 23.1178872959,
+      "p95_unitario_ms": 93.1335687,
+      "ms_claim_cpu": 1810.16203335,
+      "vram_MB": 2187.4423828125,
+      "horas_gpu_anuales": 0.5548292951,
+      "horas_cpu_anuales": 43.4438888004,
+      "tau": null,
+      "cobertura_auto": 0.0,
+      "exactitud_auto": null,
+      "cumple_f1": false,
+      "cumple_recall_salud": false,
+      "cumple_latencia": true,
+      "dispositivo": "Tesla T4",
+      "cumple_todo": false
+    }
+  },
+  "entorno": {
+    "fecha": "2026-10-12T00:41:08",
+    "semilla": 42,
+    "python": "3.13.15",
+    "plataforma": "Linux-6.6.122+-x86_64-with-glibc2.39",
+    "dispositivo": "Tesla T4",
+    "cuda": "13.0",
+    "torch": "2.11.0+cu130",
+    "transformers": "5.18.0",
+    "datasets": "4.8.5",
+    "evaluate": "0.4.6",
+    "huggingface_hub": "1.33.0",
+    "scikit_learn": "1.6.1",
+    "batch_size": 16,
+    "commits_modelos": {
+      "MiniLM-L6": "0a71e92a98",
+      "mDeBERTa-base": "b5113eb38a",
+      "XLM-R-large": "b227ee8435"
+    }
+  }
+}
